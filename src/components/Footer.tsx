@@ -152,7 +152,7 @@ export const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <span>© {year} MacroView Digital · MVD.STUDIO</span>
+        <span>© {year} MacroView Digital · Macro View Marketing</span>
         <span>Built in the dark.</span>
       </div>
     </footer>
