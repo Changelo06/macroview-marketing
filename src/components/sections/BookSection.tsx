@@ -1,4 +1,5 @@
-import { GMAIL_COMPOSE_URL } from "@/data/config";
+import { Link } from "react-router-dom";
+import { PACKAGE_TIERS_PATH } from "@/data/config";
 import { scrollToSection } from "@/hooks/useScrollDots";
 import { Footer } from "@/components/Footer";
 
@@ -57,7 +58,8 @@ export const BookSection = () => (
           className="body-l"
           style={{ maxWidth: "60ch", margin: "0 auto 40px" }}
         >
-          One call. No obligation. We will show you exactly how we would approach your content.
+          Compare the three sample tiers, pick the right starting lane, and use a hosted Xendit
+          checkout when you are ready to move.
         </p>
 
         <div
@@ -68,14 +70,9 @@ export const BookSection = () => (
             flexWrap: "wrap",
           }}
         >
-          <a
-            href={GMAIL_COMPOSE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Book a Discovery Call
-          </a>
+          <Link to={PACKAGE_TIERS_PATH} className="btn btn-primary">
+            See Package Tiers
+          </Link>
           <a
             href="#portfolio"
             className="btn btn-outline"

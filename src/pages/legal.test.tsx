@@ -58,10 +58,16 @@ describe("<Terms> content", () => {
     expect(container.textContent).toMatch(/laws of the Republic of the Philippines/i);
   });
 
-  it("links to the Refund policy from the booking-deposits section", () => {
+  it("links to the Refund policy from the payments section", () => {
     renderPage(<Terms />);
     const refundLink = screen.getByRole("link", { name: /refund policy/i });
     expect(refundLink).toHaveAttribute("href", "/refund");
+  });
+
+  it("describes hosted Xendit checkout for packages or deposits", () => {
+    const { container } = renderPage(<Terms />);
+    expect(container.textContent).toMatch(/hosted payment links/i);
+    expect(container.textContent).toMatch(/Xendit/i);
   });
 });
 
@@ -75,11 +81,18 @@ describe("<Privacy> content", () => {
     const { container } = renderPage(<Privacy />);
     expect(container.textContent).toMatch(/Xendit/);
   });
+
+  it("mentions accept or reject consent choices for analytics", () => {
+    const { container } = renderPage(<Privacy />);
+    expect(container.textContent).toMatch(/Accept or Reject/i);
+    expect(container.textContent).toMatch(/Optional analytics is disabled by default/i);
+  });
 });
 
 describe("<Refund> content", () => {
-  it("declares the 48-hour cancellation window for deposits", () => {
+  it("declares the 48-hour cancellation window for package or deposit refunds", () => {
     const { container } = renderPage(<Refund />);
+    expect(container.textContent).toMatch(/Within 48 hours of payment/i);
     expect(container.textContent).toMatch(/48 hours before/i);
   });
 });

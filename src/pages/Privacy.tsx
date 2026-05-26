@@ -1,7 +1,7 @@
 import { LegalLayout } from "@/components/LegalLayout";
 
 const Privacy = () => (
-  <LegalLayout eyebrow="Legal · Privacy" title="Privacy Policy" effectiveDate="May 2026">
+  <LegalLayout eyebrow="Legal - Privacy" title="Privacy Policy" effectiveDate="May 2026">
     <p>
       Macro View Marketing ("MVM", "we", "us") respects your privacy and is committed to protecting
       personal data in accordance with the Republic Act No. 10173, the <strong>Data Privacy Act of
@@ -12,17 +12,17 @@ const Privacy = () => (
     <h2>1. Personal Data We Collect</h2>
     <p>We collect only the data necessary to deliver our services:</p>
     <ul>
-      <li><strong>Contact details</strong> — name, email, phone number, company / brand name.</li>
-      <li><strong>Booking data</strong> — calendar slot, deposit transaction ID (handled by Xendit; we do not store full card details).</li>
-      <li><strong>Project assets</strong> — raw footage, scripts, brand guidelines, or any material you upload to us for production.</li>
-      <li><strong>Usage data</strong> — basic, aggregated analytics from this website (page views, referrer, country, device class). No personally identifying analytics.</li>
+      <li><strong>Contact details</strong> - name, email, phone number, company / brand name.</li>
+      <li><strong>Purchase and booking data</strong> - selected package tier, calendar slot, payment-link transaction reference, and billing status (handled by Xendit; we do not store full card details).</li>
+      <li><strong>Project assets</strong> - raw footage, scripts, brand guidelines, or any material you upload to us for production.</li>
+      <li><strong>Usage data</strong> - basic, aggregated analytics from this website (page views, referrer, country, device class) only if you consent to optional analytics.</li>
     </ul>
 
     <h2>2. How We Use Your Data</h2>
     <ul>
       <li>Deliver, manage, and improve our content-production services;</li>
       <li>Schedule discovery calls and onboarding sessions;</li>
-      <li>Process bookings and payments via our payment processor;</li>
+      <li>Process package purchases, bookings, and payments via our payment processor;</li>
       <li>Communicate with you about your engagement;</li>
       <li>Issue invoices, BIR-compliant receipts, and other tax / regulatory documents;</li>
       <li>Comply with legal obligations.</li>
@@ -31,10 +31,10 @@ const Privacy = () => (
     <h2>3. Sharing With Third Parties</h2>
     <p>We share personal data only with service providers necessary to operate our business:</p>
     <ul>
-      <li><strong>Xendit</strong> — payment processing for booking deposits. Subject to <a href="https://www.xendit.co/en/privacy/" target="_blank" rel="noopener noreferrer">Xendit's Privacy Policy</a>.</li>
-      <li><strong>Google (Gmail / Drive)</strong> — email correspondence and project asset storage.</li>
-      <li><strong>GitHub Pages</strong> — static hosting for this website.</li>
-      <li><strong>LinkedIn</strong> — public-facing brand presence; we do not export user data to LinkedIn.</li>
+      <li><strong>Xendit</strong> - hosted payment links and payment processing for package purchases or booking deposits. Subject to <a href="https://www.xendit.co/en/privacy/" target="_blank" rel="noopener noreferrer">Xendit's Privacy Policy</a>.</li>
+      <li><strong>Google (Gmail / Drive)</strong> - email correspondence and project asset storage.</li>
+      <li><strong>GitHub Pages</strong> - static hosting for this website.</li>
+      <li><strong>LinkedIn</strong> - public-facing brand presence; we do not export user data to LinkedIn.</li>
     </ul>
     <p>We do not sell, rent, or trade personal data to any third party for advertising purposes.</p>
 
@@ -64,9 +64,14 @@ const Privacy = () => (
 
     <h2>6. Cookies & Analytics</h2>
     <p>
-      This website uses only essential cookies for session management. We do not deploy
-      third-party tracking pixels, advertising cookies, or cross-site fingerprinting tools at this
-      time.
+      This website stores one essential preference cookie so we can remember whether you clicked
+      Accept or Reject on the cookie banner. Optional analytics is disabled by default and is only
+      enabled after you explicitly accept. We do not deploy advertising cookies or cross-site
+      fingerprinting tools at this time.
+    </p>
+    <p>
+      If analytics is enabled in the future, it will only run after consent and will be limited to
+      aggregate website performance reporting.
     </p>
 
     <h2>7. Security</h2>

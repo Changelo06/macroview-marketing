@@ -30,7 +30,7 @@ describe("<Index> page assembly", () => {
     expect(container.querySelector(".grain-overlay")).not.toBeNull();
   });
 
-  it("renders all 9 spec'd section ids in stable order", () => {
+  it("renders all 9 home section ids in stable order", () => {
     const { container } = renderIndex();
     const ids = Array.from(container.querySelectorAll<HTMLElement>("section"))
       .map((s) => s.id)

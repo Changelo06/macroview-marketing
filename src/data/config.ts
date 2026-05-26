@@ -3,6 +3,8 @@ export const BOOKING_EMAIL = "macroviewdigital@gmail.com";
 export const GMAIL_COMPOSE_URL =
   `https://mail.google.com/mail/?view=cm&to=${BOOKING_EMAIL}&su=Book%20a%20Call%20%E2%80%94%20Macro%20View%20Marketing`;
 
+export const PACKAGE_TIERS_PATH = "/packages";
+
 export const PHONE_DISPLAY = "+63 949 463 4459";
 export const PHONE_TEL = "+639494634459";
 

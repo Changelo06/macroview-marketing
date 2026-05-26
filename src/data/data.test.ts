@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   BOOKING_EMAIL,
   GMAIL_COMPOSE_URL,
+  PACKAGE_TIERS_PATH,
   PHONE_DISPLAY,
   PHONE_TEL,
   LINKEDIN_URL,
@@ -11,6 +12,7 @@ import {
   SITE_META,
 } from "./config";
 import { SECTIONS, NAV_LINKS, CTA_BANDS } from "./sections";
+import { servicePackages } from "./packages";
 import { portfolioItems } from "./portfolioItems";
 import { caseStudies } from "./caseStudies";
 import { faqs } from "./faqs";
@@ -56,7 +58,7 @@ describe("config", () => {
 });
 
 describe("sections registry", () => {
-  it("declares all 9 section ids in stable order", () => {
+  it("declares all 9 home section ids in stable order", () => {
     expect(SECTIONS.map((s) => s.id)).toEqual([
       "hero",
       "problem",
@@ -76,10 +78,29 @@ describe("sections registry", () => {
     });
   });
 
-  it("nav links only reference real section ids", () => {
+  it("section nav links only reference real section ids", () => {
     const ids = new Set(SECTIONS.map((s) => s.id));
     NAV_LINKS.forEach((link) => {
-      expect(ids.has(link.id)).toBe(true);
+      if (link.kind === "section") {
+        expect(ids.has(link.id)).toBe(true);
+      } else {
+        expect(link.to).toBe(PACKAGE_TIERS_PATH);
+      }
+    });
+  });
+});
+
+describe("service packages", () => {
+  it("defines exactly 3 sample tiers", () => {
+    expect(servicePackages).toHaveLength(3);
+  });
+
+  it("each tier has price, summary, timeline, and 3 comparison highlights", () => {
+    servicePackages.forEach((pkg) => {
+      expect(pkg.priceLabel.length).toBeGreaterThan(0);
+      expect(pkg.summary.length).toBeGreaterThan(20);
+      expect(pkg.timeline.length).toBeGreaterThan(0);
+      expect(pkg.highlights).toHaveLength(3);
     });
   });
 });
@@ -102,20 +123,20 @@ describe("CTA bands", () => {
     });
   });
 
-  it("internal hrefs are anchors and external hrefs are URLs", () => {
+  it("section variants use anchors and route variants use the packages path", () => {
     variants.forEach((v) => {
       const cfg = CTA_BANDS[v];
-      if (cfg.isExternal) {
-        expect(cfg.href.startsWith("https://")).toBe(true);
-      } else {
+      if (cfg.kind === "section") {
         expect(cfg.href.startsWith("#")).toBe(true);
+      } else {
+        expect(cfg.href).toBe(PACKAGE_TIERS_PATH);
       }
     });
   });
 
-  it("portfolio + faq variants point to the gmail compose URL", () => {
-    expect(CTA_BANDS.portfolio.href).toBe(GMAIL_COMPOSE_URL);
-    expect(CTA_BANDS.faq.href).toBe(GMAIL_COMPOSE_URL);
+  it("portfolio + faq variants point to the packages page", () => {
+    expect(CTA_BANDS.portfolio.href).toBe(PACKAGE_TIERS_PATH);
+    expect(CTA_BANDS.faq.href).toBe(PACKAGE_TIERS_PATH);
   });
 });
 

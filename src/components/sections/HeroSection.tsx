@@ -1,4 +1,5 @@
-import { GMAIL_COMPOSE_URL } from "@/data/config";
+import { Link } from "react-router-dom";
+import { PACKAGE_TIERS_PATH } from "@/data/config";
 import { scrollToSection } from "@/hooks/useScrollDots";
 
 export const HeroSection = () => (
@@ -39,14 +40,9 @@ export const HeroSection = () => (
           </p>
 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-            <a
-              href={GMAIL_COMPOSE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Book a Discovery Call
-            </a>
+            <Link to={PACKAGE_TIERS_PATH} className="btn btn-primary">
+              See Package Tiers
+            </Link>
             <a
               href="#portfolio"
               className="btn btn-outline"

@@ -1,7 +1,7 @@
 import { LegalLayout } from "@/components/LegalLayout";
 
 const Terms = () => (
-  <LegalLayout eyebrow="Legal · Terms" title="Terms & Conditions" effectiveDate="May 2026">
+  <LegalLayout eyebrow="Legal - Terms" title="Terms & Conditions" effectiveDate="May 2026">
     <h2>1. Acceptance of Terms</h2>
     <p>
       By accessing, browsing, or engaging the services of Macro View Marketing ("MVM", "we", "us",
@@ -23,12 +23,17 @@ const Terms = () => (
       organization, you represent that you have authority to bind that organization.
     </p>
 
-    <h2>4. Booking & Deposits</h2>
+    <h2>4. Packages, Payment Links & Deposits</h2>
     <p>
-      Discovery calls and onboarding slots are reserved by a deposit payable through our designated
-      payment processor (currently Xendit). Deposit amounts and terms are disclosed at the point
-      of booking. Refund eligibility is governed by our{" "}
+      We may offer fixed-scope service packages, discovery-call deposits, or onboarding fees
+      payable through hosted payment links provided by our designated payment processor (currently
+      Xendit). Package scope, pricing, and any applicable deposit terms are disclosed on the
+      relevant package card, invoice, or checkout page. Refund eligibility is governed by our{" "}
       <a href="/refund">Refund Policy</a>.
+    </p>
+    <p>
+      By completing a hosted checkout, you authorise Xendit to process the transaction on our
+      behalf. Macro View Marketing does not collect or store full card credentials on this site.
     </p>
 
     <h2>5. Intellectual Property</h2>
@@ -83,21 +88,27 @@ const Terms = () => (
       obligations accrued prior to termination.
     </p>
 
-    <h2>10. Governing Law & Jurisdiction</h2>
+    <h2>10. No Automatic Recurring Billing</h2>
+    <p>
+      Unless expressly stated in a signed proposal or invoice, package purchases made through this
+      website are one-time payments and do not create an automatic recurring subscription.
+    </p>
+
+    <h2>11. Governing Law & Jurisdiction</h2>
     <p>
       These Terms are governed by the laws of the Republic of the Philippines, without regard to
       conflict-of-laws principles. Any dispute shall be submitted to the exclusive jurisdiction of
       the courts of Metro Manila, Philippines.
     </p>
 
-    <h2>11. Changes to These Terms</h2>
+    <h2>12. Changes to These Terms</h2>
     <p>
       We may revise these Terms from time to time. Material changes will be highlighted by an
       updated effective date at the top of this page. Continued use after publication constitutes
       acceptance.
     </p>
 
-    <h2>12. Contact</h2>
+    <h2>13. Contact</h2>
     <p>
       For questions regarding these Terms, contact us at{" "}
       <a href="mailto:macroviewdigital@gmail.com">macroviewdigital@gmail.com</a> or +63 949 463 4459.

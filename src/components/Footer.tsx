@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   BOOKING_EMAIL,
   PHONE_DISPLAY,
@@ -50,15 +50,17 @@ const colLabelStyle: React.CSSProperties = {
 export const Footer = () => {
   const year = new Date().getFullYear();
   const time = useLiveClock();
+  const { pathname } = useLocation();
 
   return (
     <footer className="footer">
       <div className="footer-row">
         <div style={{ maxWidth: "320px" }}>
           <a
-            href="#hero"
+            href={pathname === "/" ? "#hero" : "/#hero"}
             className="nav-logo"
             onClick={(e) => {
+              if (pathname !== "/") return;
               e.preventDefault();
               scrollToSection("hero");
             }}
@@ -75,17 +77,24 @@ export const Footer = () => {
             <span className="font-mono" style={colLabelStyle}>Sections</span>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "10px" }}>
               {NAV_LINKS.map((l) => (
-                <li key={l.id}>
-                  <a
-                    href={`#${l.id}`}
-                    className="nav-link"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(l.id);
-                    }}
-                  >
-                    {l.label}
-                  </a>
+                <li key={l.kind === "section" ? l.id : l.to}>
+                  {l.kind === "section" ? (
+                    <a
+                      href={pathname === "/" ? `#${l.id}` : `/#${l.id}`}
+                      className="nav-link"
+                      onClick={(e) => {
+                        if (pathname !== "/") return;
+                        e.preventDefault();
+                        scrollToSection(l.id);
+                      }}
+                    >
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link to={l.to} className="nav-link">
+                      {l.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

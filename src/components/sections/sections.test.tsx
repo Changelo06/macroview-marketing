@@ -10,24 +10,33 @@ import { ResultsSection } from "./ResultsSection";
 import { WhySection } from "./WhySection";
 import { WhoSection } from "./WhoSection";
 import { FaqSection } from "./FaqSection";
+import { PackagesSection } from "./PackagesSection";
 import { BookSection } from "./BookSection";
 
-import { GMAIL_COMPOSE_URL } from "@/data/config";
+import { PACKAGE_TIERS_PATH } from "@/data/config";
 import { faqs } from "@/data/faqs";
 import { portfolioItems } from "@/data/portfolioItems";
 import { caseStudies } from "@/data/caseStudies";
+import { servicePackages } from "@/data/packages";
 import { testimonials } from "@/data/testimonials";
 
 describe("<HeroSection>", () => {
-  it("renders the headline and discovery-call CTA", () => {
-    render(<HeroSection />);
+  const renderHero = () =>
+    render(
+      <MemoryRouter>
+        <HeroSection />
+      </MemoryRouter>,
+    );
+
+  it("renders the headline and packages CTA", () => {
+    renderHero();
     expect(screen.getByText(/MACHINE\./)).toBeInTheDocument();
-    const cta = screen.getByRole("link", { name: /book a discovery call/i });
-    expect(cta).toHaveAttribute("href", GMAIL_COMPOSE_URL);
+    const cta = screen.getByRole("link", { name: /see package tiers/i });
+    expect(cta).toHaveAttribute("href", PACKAGE_TIERS_PATH);
   });
 
   it("includes the gif media element in the hero panel", () => {
-    const { container } = render(<HeroSection />);
+    const { container } = renderHero();
     const media = container.querySelector(".hero-media");
     expect(media).not.toBeNull();
     expect(media?.tagName).toBe("IMG");
@@ -35,15 +44,21 @@ describe("<HeroSection>", () => {
   });
 
   it("does NOT render the studio-open live badge anymore", () => {
-    render(<HeroSection />);
+    renderHero();
     expect(screen.queryByText(/studio open/i)).not.toBeInTheDocument();
   });
 
   it("renders the three counter chips", () => {
-    render(<HeroSection />);
+    renderHero();
     expect(screen.getByText("100+")).toBeInTheDocument();
     expect(screen.getByText("3M+")).toBeInTheDocument();
     expect(screen.getByText("48h")).toBeInTheDocument();
+  });
+
+  it("does NOT include any on-site payment / deposit CTA", () => {
+    const { container } = renderHero();
+    expect(container.querySelector(".deposit-cta")).toBeNull();
+    expect(screen.queryByText(/reserve a slot/i)).not.toBeInTheDocument();
   });
 });
 
@@ -261,12 +276,11 @@ describe("<BookSection>", () => {
       </MemoryRouter>,
     );
 
-  it("renders the closing headline and the discovery CTA", () => {
+  it("renders the closing headline and the packages CTA", () => {
     renderBook();
     expect(screen.getByText(/MACHINE\./)).toBeInTheDocument();
-    const cta = screen.getByRole("link", { name: /book a discovery call/i });
-    expect(cta).toHaveAttribute("href", GMAIL_COMPOSE_URL);
-    expect(cta).toHaveAttribute("target", "_blank");
+    const cta = screen.getByRole("link", { name: /see package tiers/i });
+    expect(cta).toHaveAttribute("href", PACKAGE_TIERS_PATH);
   });
 
   it("includes a See Portfolio outline button pointing at #portfolio", () => {
@@ -278,5 +292,39 @@ describe("<BookSection>", () => {
   it("renders the Footer underneath the section", () => {
     const { container } = renderBook();
     expect(container.querySelector("footer.footer")).not.toBeNull();
+  });
+
+  it("does NOT include any on-site payment / deposit CTA", () => {
+    const { container } = renderBook();
+    expect(container.querySelector(".deposit-cta")).toBeNull();
+    expect(screen.queryByText(/reserve a slot/i)).not.toBeInTheDocument();
+  });
+});
+
+describe("<PackagesSection>", () => {
+  it("renders all 3 configured sample tiers", () => {
+    render(<PackagesSection />);
+    servicePackages.forEach((pkg) => {
+      expect(screen.getByText(pkg.name)).toBeInTheDocument();
+      expect(screen.getAllByText(pkg.priceLabel).length).toBeGreaterThan(0);
+    });
+  });
+
+  it("shows the summary comparison rows for each package", () => {
+    render(<PackagesSection />);
+    expect(screen.getAllByText(/output/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/planning/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/delivery/i).length).toBeGreaterThan(0);
+  });
+
+  it("shows Xendit as the primary checkout action for each package", () => {
+    const { container } = render(<PackagesSection />);
+    expect(screen.getAllByText(/pay via xendit/i)).toHaveLength(3);
+    expect(container.querySelectorAll(".package-card")).toHaveLength(3);
+  });
+
+  it("includes an inquiry action for each tier", () => {
+    render(<PackagesSection />);
+    expect(screen.getAllByRole("link", { name: /ask about this tier/i })).toHaveLength(3);
   });
 });
