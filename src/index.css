@@ -74,7 +74,11 @@
 
   body {
     margin: 0;
-    overflow: hidden; /* snap-root handles scroll */
+  }
+  /* snap-root locks body scroll only on the home page; legal pages
+     (no #snap-root child) keep default body scrolling */
+  body:has(#snap-root) {
+    overflow: hidden;
   }
 
   ::selection {
@@ -1339,6 +1343,96 @@
     transform: none !important;
   }
   .grain-overlay { animation: none !important; }
+}
+
+/* ============================================================
+   LEGAL PAGES (terms / privacy / refund / service)
+   ============================================================ */
+.legal-page {
+  background: var(--deep);
+  min-height: 100vh;
+  padding: 140px 0 80px;
+}
+.legal-container {
+  max-width: 760px;
+}
+.legal-header {
+  margin-bottom: 56px;
+  border-bottom: 1px solid var(--border-c);
+  padding-bottom: 32px;
+}
+.legal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 6vw, 80px);
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  color: var(--white-c);
+  margin: 24px 0 16px;
+}
+.legal-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 24px;
+}
+.legal-notice {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--dim);
+  border-left: 2px solid var(--blue);
+  padding: 12px 16px;
+  background: rgba(79, 140, 255, 0.04);
+  margin: 0;
+}
+.legal-notice a {
+  color: var(--blue);
+}
+.legal-body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+}
+.legal-body h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--white-c);
+  margin: 48px 0 16px;
+}
+.legal-body h2:first-of-type { margin-top: 0; }
+.legal-body h3 {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 24px 0 8px;
+}
+.legal-body p { margin: 0 0 16px; }
+.legal-body ul, .legal-body ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+.legal-body li { margin-bottom: 8px; }
+.legal-body strong { color: var(--white-c); font-weight: 500; }
+.legal-body a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: var(--blue-glow);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+.legal-body a:hover {
+  text-decoration-color: var(--blue);
+}
+.legal-back {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-c);
 }
 
 /* ============================================================

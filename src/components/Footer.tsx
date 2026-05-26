@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   BOOKING_EMAIL,
   PHONE_DISPLAY,
@@ -10,6 +11,13 @@ import {
 } from "@/data/config";
 import { NAV_LINKS } from "@/data/sections";
 import { scrollToSection } from "@/hooks/useScrollDots";
+
+const LEGAL_LINKS = [
+  { to: "/terms",          label: "Terms" },
+  { to: "/privacy",        label: "Privacy" },
+  { to: "/refund",         label: "Refund" },
+  { to: "/service-policy", label: "Service Policy" },
+];
 
 const formatPHT = (d: Date) =>
   new Intl.DateTimeFormat("en-US", {
@@ -146,6 +154,19 @@ export const Footer = () => {
                 />
                 {UTC_OFFSET} · {time}
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <span className="font-mono" style={colLabelStyle}>Legal</span>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "10px" }}>
+              {LEGAL_LINKS.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className="nav-link">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

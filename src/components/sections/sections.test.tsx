@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 
 import { HeroSection } from "./HeroSection";
 import { ProblemSection } from "./ProblemSection";
@@ -253,8 +254,15 @@ describe("<FaqSection>", () => {
 });
 
 describe("<BookSection>", () => {
+  const renderBook = () =>
+    render(
+      <MemoryRouter>
+        <BookSection />
+      </MemoryRouter>,
+    );
+
   it("renders the closing headline and the discovery CTA", () => {
-    render(<BookSection />);
+    renderBook();
     expect(screen.getByText(/MACHINE\./)).toBeInTheDocument();
     const cta = screen.getByRole("link", { name: /book a discovery call/i });
     expect(cta).toHaveAttribute("href", GMAIL_COMPOSE_URL);
@@ -262,13 +270,13 @@ describe("<BookSection>", () => {
   });
 
   it("includes a See Portfolio outline button pointing at #portfolio", () => {
-    render(<BookSection />);
+    renderBook();
     const link = screen.getByRole("link", { name: /see portfolio/i });
     expect(link).toHaveAttribute("href", "#portfolio");
   });
 
   it("renders the Footer underneath the section", () => {
-    const { container } = render(<BookSection />);
+    const { container } = renderBook();
     expect(container.querySelector("footer.footer")).not.toBeNull();
   });
 });
