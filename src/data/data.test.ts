@@ -43,7 +43,7 @@ describe("config", () => {
   });
 
   it("studio location and timezone are set", () => {
-    expect(LOCATION).toBe("Philippines");
+    expect(LOCATION).toBe("Metro Manila, Philippines");
     expect(TIMEZONE).toBe("Asia/Manila");
     expect(UTC_OFFSET).toBe("UTC+8");
   });

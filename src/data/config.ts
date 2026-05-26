@@ -8,7 +8,7 @@ export const PHONE_TEL = "+639494634459";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/company/macroviewdigital/";
 
-export const LOCATION = "Philippines";
+export const LOCATION = "Metro Manila, Philippines";
 export const TIMEZONE = "Asia/Manila";
 export const UTC_OFFSET = "UTC+8";
 
