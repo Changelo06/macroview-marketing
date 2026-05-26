@@ -19,7 +19,7 @@ export const WhySection = () => (
         style={{ width: "100%", display: "grid", gap: "80px", alignItems: "center" }}
       >
         <div>
-          <Tag>Why MVD</Tag>
+          <Tag>Why MVM</Tag>
           <h2
             className="display-m"
             style={{ color: "var(--white-c)", margin: "32px 0 28px" }}

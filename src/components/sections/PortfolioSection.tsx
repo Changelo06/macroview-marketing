@@ -89,10 +89,10 @@ export const PortfolioSection = () => (
             <span className="portfolio-cta-ceo-name">Mark Jason</span>
             <img
               src="/CEO.svg"
-              alt="Mark Jason — Owner of MVD"
+              alt="Mark Jason — Owner of Macro View Marketing"
               className="portfolio-cta-ceo"
             />
-            <span className="portfolio-cta-ceo-role">Owner of MVD</span>
+            <span className="portfolio-cta-ceo-role">Owner of MVM</span>
           </div>
         </article>
       </div>

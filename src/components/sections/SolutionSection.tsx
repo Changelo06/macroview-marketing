@@ -29,7 +29,7 @@ export const SolutionSection = () => (
       <header className="snap-content" style={{ textAlign: "center", marginBottom: "64px" }}>
         <Tag>The System</Tag>
         <h2 className="display-m" style={{ color: "var(--white-c)", marginTop: "28px" }}>
-          THE MVD<br />
+          THE MVM<br />
           PRODUCTION<br />
           <span style={{ color: "var(--blue)" }}>ENGINE.</span>
         </h2>

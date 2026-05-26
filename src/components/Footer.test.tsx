@@ -49,7 +49,7 @@ describe("<Footer>", () => {
     render(<Footer />);
     const year = new Date().getFullYear();
     expect(
-      screen.getByText(new RegExp(`© ${year} MacroView Digital`)),
+      screen.getByText(new RegExp(`© ${year} Macro View Marketing`)),
     ).toBeInTheDocument();
   });
 });

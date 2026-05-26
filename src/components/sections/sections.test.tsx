@@ -115,7 +115,7 @@ describe("<PortfolioSection>", () => {
     expect(screen.getByText(/WHAT YOU WANT,/)).toBeInTheDocument();
     expect(screen.getByText(/WE GET IT FOR YOU\./)).toBeInTheDocument();
     expect(screen.getByText("Mark Jason")).toBeInTheDocument();
-    expect(screen.getByText("Owner of MVD")).toBeInTheDocument();
+    expect(screen.getByText("Owner of MVM")).toBeInTheDocument();
     // Sanity: the long-form should NOT appear
     expect(screen.queryByText("Mark Jason Marcelino")).not.toBeInTheDocument();
   });

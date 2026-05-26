@@ -9,7 +9,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "MacroView took our raw footage and turned it into a content machine. We went from posting once a month to twice a week without adding headcount.",
+      "Macro View Marketing took our raw footage and turned it into a content machine. We went from posting once a month to twice a week without adding headcount.",
     author: "Alex R.",
     role: "Business Coach",
   },

@@ -6,7 +6,7 @@ export const SECTIONS = [
   { id: "solution",  label: "System" },
   { id: "portfolio", label: "Portfolio" },
   { id: "results",   label: "Results" },
-  { id: "why",       label: "Why MVD" },
+  { id: "why",       label: "Why MVM" },
   { id: "who",       label: "Who" },
   { id: "faq",       label: "FAQ" },
   { id: "book",      label: "Book" },
@@ -46,7 +46,7 @@ export const CTA_BANDS: Record<
   },
   why: {
     headline: "THERE IS NO SECOND TAKE IN CONTENT.",
-    cta: "See Why MVD",
+    cta: "See Why MVM",
     href: "#why",
   },
   faq: {

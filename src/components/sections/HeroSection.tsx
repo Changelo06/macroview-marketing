@@ -76,7 +76,7 @@ const HeroPanel = () => (
     />
     <div className="hero-grid" />
     <div className="hero-orb" />
-    <div className="hero-vert-label">MVD.2025</div>
+    <div className="hero-vert-label">MVM.2025</div>
 
     <div className="hero-counter-row">
       <div className="hero-counter">
